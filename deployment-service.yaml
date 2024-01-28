@@ -13,10 +13,13 @@ spec:
         app: test-pod-debugging
     spec:
       containers:
-      - name: test-pod-debugging
-        image: ghcr.io/emanuelef/test-pod-debugging:latest
-        ports:
-        - containerPort: 8098
+        - name: test-pod-debugging
+          image: ghcr.io/emanuelef/test-pod-debugging:latest
+          ports:
+            - containerPort: 8098
+          env:
+            - name: SECOND_API_HOST
+              value: test-pod-debugging-second-service.default.svc.cluster.local
 
 ---
 apiVersion: v1
