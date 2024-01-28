@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-ap
+  template:
+    metadata:
+      labels:
+        app: simple-ap
+    spec:
+      containers:
+      - name: simple-ap
+        image: your-docker-username/my-python-app
+        ports:
+        - containerPort: 8080
+          port: 8082
