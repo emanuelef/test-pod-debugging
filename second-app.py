@@ -1,5 +1,6 @@
 import os
 import asyncio
+import logging
 from aiohttp import web, ClientSession
 
 
@@ -38,7 +39,7 @@ async def init():
     site = web.TCPSite(runner, "0.0.0.0", 8096)
     await site.start()
 
-    print("Server started on http://0.0.0.0:8096")
+    logging.warning("Server started on http://0.0.0.0:8096")
 
 
 # Run the asyncio event loop
