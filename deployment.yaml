@@ -16,4 +16,4 @@ spec:
       - name: test-pod-debugging
         image: ghcr.io/emanuelef/test-pod-debugging:20240128-1003
         ports:
-        - containerPort: 8082
+        - containerPort: 8098
