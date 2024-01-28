@@ -23,10 +23,10 @@ async def init():
     await runner.setup()
 
     # Create the aiohttp server and start it
-    site = web.TCPSite(runner, "0.0.0.0", 8080)
+    site = web.TCPSite(runner, "0.0.0.0", 8082)
     await site.start()
 
-    print("Server started on http://0.0.0.0:8080")
+    print("Server started on http://0.0.0.0:8082")
 
 
 # Run the asyncio event loop

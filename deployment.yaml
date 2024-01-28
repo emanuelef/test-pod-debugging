@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
       - name: test-pod-debugging
-        image: your-docker-username/my-python-app
+        image: ghcr.io/emanuelef/test-pod-debugging:20240128-1003
         ports:
-        - containerPort: 8080
-          port: 8082
+        - containerPort: 8082
