@@ -6,12 +6,12 @@ on:
     branches:
       - main
     paths:
-      - "app.py"
-      - "Dockerfile"
+      - "second-app.py"
+      - "Dockerfile-second"
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: emanuelef/test-pod-debugging
+  IMAGE_NAME: emanuelef/test-pod-debugging-second
   VERSION_NUMBER: latest
 
 jobs:

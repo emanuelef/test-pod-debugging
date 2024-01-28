@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-pod-debugging
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-pod-debugging
+  template:
+    metadata:
+      labels:
+        app: test-pod-debugging
+    spec:
+      containers:
+      - name: test-pod-debugging
+        image: ghcr.io/emanuelef/test-pod-debugging:20240128-1005
+        ports:
+        - containerPort: 8098
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-pod-debugging-service
+spec:
+  selector:
+    app: test-pod-debugging
+  ports:
+    - protocol: TCP
+      port: 8098
+      targetPort: 8098
+  type: LoadBalancer

@@ -5,3 +5,6 @@
 `kubectl apply -f deployment.yaml`
 
 `kubectl expose deployment test-pod-debugging --type=LoadBalancer --port=8098`
+
+
+`--kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig`
