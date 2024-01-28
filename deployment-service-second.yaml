@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-pod-debugging
+  name: test-pod-debugging-second
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-pod-debugging
+      app: test-pod-debugging-second
   template:
     metadata:
       labels:
-        app: test-pod-debugging
+        app: test-pod-debugging-second
     spec:
       containers:
-      - name: test-pod-debugging
-        image: ghcr.io/emanuelef/test-pod-debugging:latest
+      - name: test-pod-debugging-second
+        image: ghcr.io/emanuelef/test-pod-debugging-second:latest
         ports:
         - containerPort: 8098
 
@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-pod-debugging-service
+  name: test-pod-debugging-second-service
 spec:
   selector:
-    app: test-pod-debugging
+    app: test-pod-debugging-second
   ports:
     - protocol: TCP
       port: 8098
