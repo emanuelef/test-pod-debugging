@@ -30,4 +30,4 @@ spec:
     - protocol: TCP
       port: 8096
       targetPort: 8096
-  type: LoadBalancer
+  type: NodePort
