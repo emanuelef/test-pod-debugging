@@ -16,10 +16,8 @@ async def handle(request):
 
 
 async def callExternalApi():
-    api_host = os.getenv(
-        "EXTERNAL_API_HOST", "https://second-service.svc.cluster.local:8096"
-    )
-    url = f"{api_host}"
+    api_host = os.getenv("API_HOST", "localhost")
+    url = f"http://{api_host}:8098"
     async with ClientSession() as session:
         async with session.get(url) as response:
             response_text = await response.text()
