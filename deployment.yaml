@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-app
+  name: test-pod-debugging
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simple-ap
+      app: test-pod-debugging
   template:
     metadata:
       labels:
-        app: simple-ap
+        app: test-pod-debugging
     spec:
       containers:
-      - name: simple-ap
+      - name: test-pod-debugging
         image: your-docker-username/my-python-app
         ports:
         - containerPort: 8080
