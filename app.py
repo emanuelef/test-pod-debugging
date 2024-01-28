@@ -16,7 +16,7 @@ async def handle(request):
 
 async def callExternalApi():
     api_host = os.getenv(
-        "EXTERNAL_API_HOST", "https://second-service.svc.cluster.local:8096"
+        "EXTERNAL_API_HOST", "http://test-pod-debugging-second-service.default.svc.cluster.local:8096"
     )
     url = f"{api_host}"
     async with ClientSession() as session:
