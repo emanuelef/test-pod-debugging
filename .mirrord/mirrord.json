@@ -4,9 +4,12 @@
     "fs": {
       "mode": "read"
     },
-    "network": true
+    "network": {
+      "incoming": "steal"
+    }
   },
   "target": {
     "namespace": "default"
-  }
+  },
+  "kubeconfig": "/Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig"
 }
