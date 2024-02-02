@@ -8,7 +8,7 @@ on:
     paths:
       - "rust-app/src/main.rs"
       - "rust-app/Cargo.toml"
-      - "rust-appp/Dockerfile"
+      - "rust-app/Dockerfile"
 
 env:
   REGISTRY: ghcr.io
