@@ -1,4 +1,4 @@
-name: Publish Go App Docker image to GHCR
+name: Publish Rust App Docker image to GHCR
 
 on:
   workflow_dispatch:
