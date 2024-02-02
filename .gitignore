@@ -1,1 +1,16 @@
+# Ignore .env files
+.env
 
+rust-app/target
+
+# Ignore rustfmt configuration file
+.rustfmt.toml
+
+# Ignore build scripts
+build.rs
+
+# Ignore generated files
+*.rs.bk
+
+# Ignore Mac OS system files
+.DS_Store
