@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: test-pod-debugging
-        image: ghcr.io/emanuelef/test-pod-debugging:20240128-1005
+        image: ghcr.io/emanuelef/test-pod-debugging:20240128-1012
         ports:
         - containerPort: 8098
