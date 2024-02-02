@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-pod-go-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-pod-go-app
+  template:
+    metadata:
+      labels:
+        app: test-pod-go-app
+    spec:
+      containers:
+        - name: test-pod-go-app
+          image: ghcr.io/emanuelef/test-pod-go-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: API_HOST
+              value: test-pod-debugging-service.default.svc.cluster.local
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-pod-go-app-service
+spec:
+  selector:
+    app: test-pod-go-app
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
