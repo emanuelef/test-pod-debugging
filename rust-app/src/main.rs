@@ -17,10 +17,7 @@ async fn greet(name: web::Path<String>) -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    // Initialize the logger (env_logger in this case, but you can choose other loggers)
     env_logger::init();
-
-    // Log that the web server is starting
     log::info!("Starting web server on 0.0.0.0:8080");
 
     // Start the Actix web server
