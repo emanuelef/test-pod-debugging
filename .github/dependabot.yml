@@ -1,7 +1,7 @@
 version: 2
 updates:
   - package-ecosystem: "pip"
-    directory: "/"
+    directory: "/python-app"
     schedule:
       interval: weekly
 
@@ -21,7 +21,7 @@ updates:
       interval: weekly
 
   - package-ecosystem: "docker"
-    directory: "/"
+    directory: "/python-app"
     schedule:
       interval: weekly
 
