@@ -62,8 +62,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           platforms: linux/amd64,linux/arm64
-          context: rust-app
-          file: ./rust-app/Dockerfile-second
+          context: python-app
+          file: ./python-app/Dockerfile-second
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
