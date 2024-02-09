@@ -15,14 +15,3 @@ kubectl delete -f deployment-service-second.yaml
 kubectl delete -f deployment-service-go-app.yaml
 kubectl delete -f deployment-service-rust-app.yaml
 ```
-
-`kubectl expose deployment test-pod-debugging --type=LoadBalancer --port=8098`
-
-
-`--kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig`
-
-kubectl apply -f deployment-service.yaml --kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig
-kubectl apply -f deployment-service-second.yaml --kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig
-
-kubectl delete -f deployment-service.yaml --kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig
-kubectl delete -f deployment-service-second.yaml --kubeconfig /Users/efumagal/Workspace/Gravity/erdk-local-deployment/.kubeconfig
