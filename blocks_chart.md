@@ -1,7 +1,4 @@
 ```mermaid
-graph TD;
-    Python App-->Go App;
-    Python App-->Rust App;
-    B-->D;
-    C-->D;
+flowchart LR
+   A -- text --> B -- text2 --> C
 ```
