@@ -16,7 +16,7 @@ spec:
         - name: test-pod-debugging-second
           image: ghcr.io/emanuelef/test-pod-debugging-second:latest
           ports:
-            - containerPort: 8096
+            - containerPort: 8080
           env:
             - name: API_HOST
               value: test-pod-debugging-service.default.svc.cluster.local
@@ -31,6 +31,6 @@ spec:
     app: test-pod-debugging-second
   ports:
     - protocol: TCP
-      port: 8096
-      targetPort: 8096
+      port: 8080
+      targetPort: 8080
   type: ClusterIP

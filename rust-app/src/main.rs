@@ -6,6 +6,11 @@ struct GreetResponse {
     message: String,
 }
 
+#[get("/health")]
+async fn health() -> impl Responder {
+    HttpResponse::Ok().body("OK")
+}
+
 #[get("/hello/{name}")]
 async fn greet(name: web::Path<String>) -> impl Responder {
     let response = GreetResponse {

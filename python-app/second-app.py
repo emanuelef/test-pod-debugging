@@ -15,9 +15,13 @@ async def handle(request):
     return web.Response(text=f"Hello, {name}! External API Response: {text}")
 
 
+async def health(request):
+    return web.Response(text="OK")
+
+
 async def callExternalApi():
     api_host = os.getenv("API_HOST", "localhost")
-    url = f"http://{api_host}:8098"
+    url = f"http://{api_host}:8080"
     async with ClientSession() as session:
         async with session.get(url) as response:
             response_text = await response.text()
@@ -28,16 +32,17 @@ async def init():
     app = web.Application()
     app.router.add_get("/", handleRoot)
     app.router.add_get("/{name}", handle)
+    app.router.add_get("/health", health)
 
     # Setup the aiohttp server
     runner = web.AppRunner(app)
     await runner.setup()
 
     # Create the aiohttp server and start it
-    site = web.TCPSite(runner, "0.0.0.0", 8096)
+    site = web.TCPSite(runner, "0.0.0.0", 8080)
     await site.start()
 
-    logging.warning("Server started on http://0.0.0.0:8096")
+    logging.warning("Server started on http://0.0.0.0:8080")
 
 
 # Run the asyncio event loop

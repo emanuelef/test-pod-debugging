@@ -4,6 +4,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY second-app.py .
-EXPOSE 8096
+EXPOSE 8080
 
 CMD ["python", "second-app.py"]

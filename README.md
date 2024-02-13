@@ -1,6 +1,6 @@
 `docker build -t simple-app .`
 
-`docker run -p 8098:8098 simple-app`
+`docker run -p 8080:8080 simple-app`
 
 ``` bash
 kubectl apply -f deployment-service.yaml
