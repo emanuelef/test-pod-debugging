@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - "app.py"
-      - "Dockerfile"
+      - "python-app/app.py"
+      - "python-app/Dockerfile"
 
 env:
   REGISTRY: ghcr.io
