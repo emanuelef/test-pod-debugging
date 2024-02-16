@@ -19,7 +19,7 @@ spec:
             - containerPort: 8080
           env:
             - name: API_HOST
-              value: test-pod-debugging-service.default.svc.cluster.local
+              value: python-app-service.default.svc.cluster.local
 
 ---
 apiVersion: v1

@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-pod-debugging
+  name: python-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-pod-debugging
+      app: python-app
   template:
     metadata:
       labels:
-        app: test-pod-debugging
+        app: python-app
     spec:
       containers:
-        - name: test-pod-debugging
-          image: ghcr.io/emanuelef/test-pod-debugging:latest
+        - name: python-app
+          image: ghcr.io/emanuelef/python-app:latest
           ports:
             - containerPort: 8080
           env:
             - name: SECOND_API_HOST
-              value: test-pod-debugging-second-service.default.svc.cluster.local
+              value: python-app-second-service.default.svc.cluster.local
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-pod-debugging-service
+  name: python-app-service
 spec:
   selector:
-    app: test-pod-debugging
+    app: python-app
   ports:
     - protocol: TCP
       port: 8080

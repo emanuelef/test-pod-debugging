@@ -1,4 +1,4 @@
-module github.com/emanuelef/test-pod-debugging/go-app
+module github.com/emanuelef/k8s-local-debugging/go-app
 
 go 1.21.6
 

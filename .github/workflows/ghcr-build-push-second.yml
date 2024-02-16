@@ -11,7 +11,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: emanuelef/test-pod-debugging-second
+  IMAGE_NAME: emanuelef/python-app-second
   VERSION_NUMBER: latest
 
 jobs:
