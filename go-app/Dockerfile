@@ -6,6 +6,7 @@ COPY go.sum .
 RUN go build -o /go/bin/go-app/
 
 FROM alpine:latest AS runner
+ENV GIN_MODE=release
 WORKDIR /usr/src/app/
 COPY --from=builder /go/bin/go-app/ .
 EXPOSE 8080

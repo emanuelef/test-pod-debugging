@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log"
+	"log/slog"
 	"net/http"
 	"os"
 	"time"
@@ -37,11 +37,13 @@ func main() {
 
 	// Define a health endpoint
 	r.GET("/health", func(c *gin.Context) {
+		slog.Info("Called /health")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 
 	// Define a hello endpoint
 	r.GET("/hello", func(c *gin.Context) {
+		slog.Info("Called /hello")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 
@@ -51,9 +53,10 @@ func main() {
 		port := getEnv("PORT", "8080")
 		hostAddress := fmt.Sprintf("%s:%s", host, port)
 
+		slog.Info("Starting server")
 		err := r.Run(hostAddress)
 		if err != nil {
-			log.Printf("Starting router failed, %v", err)
+			slog.Info("Starting router failed, %v", err)
 		}
 	}()
 
@@ -67,10 +70,10 @@ func main() {
 			// Perform the GET request to secondaryHelloUrl here
 			resp, err := http.Get(secondaryHelloUrl)
 			if err != nil {
-				log.Printf("Error making GET request to secondaryHelloUrl: %v", err)
+				slog.Info("Error making GET request to secondaryHelloUrl: %v", err)
 			} else {
 				defer resp.Body.Close()
-				log.Printf("GET request to secondaryHelloUrl successful")
+				slog.Info("GET request to secondaryHelloUrl successful")
 			}
 		}
 	}
