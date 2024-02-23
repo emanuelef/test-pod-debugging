@@ -19,7 +19,7 @@ var notToLogEndpoints = []string{"/health", "/metrics"}
 var (
 	secondaryHost     = getEnv("API_HOST", "localhost")
 	secondaryAddress  = fmt.Sprintf("http://%s:8080", secondaryHost)
-	secondaryHelloUrl = fmt.Sprintf("%s/hello", secondaryAddress)
+	secondaryHelloUrl = fmt.Sprintf("%s/hello/john", secondaryAddress)
 )
 
 func getEnv(key, fallback string) string {
