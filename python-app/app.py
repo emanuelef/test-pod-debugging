@@ -55,16 +55,11 @@ async def init():
 
     logging.warning("Server started on http://0.0.0.0:8080")
 
+    # Keep the application running indefinitely
+    while True:
+        await asyncio.sleep(60)
 
-# Run the asyncio event loop
+
 if __name__ == "__main__":
     os.environ["PYTHONUNBUFFERED"] = "1"
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(init())
-    try:
-        loop.run_forever()
-    except KeyboardInterrupt:
-        pass
-    finally:
-        loop.run_until_complete(loop.shutdown_asyncgens())
-        loop.close()
+    asyncio.run(init())
