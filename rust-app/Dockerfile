@@ -16,8 +16,6 @@ FROM alpine:latest AS runtime
 RUN apk update && apk add ca-certificates && apk cache clean
 COPY --from=builder /app/target/release/rust-app /usr/local/bin/rust-app
 WORKDIR /usr/local/rust-app
-COPY config.toml config.toml
-COPY config.prod.toml config.prod.toml
 ENV RUST_LOG="info"
 EXPOSE 8080
 CMD ["rust-app"]
