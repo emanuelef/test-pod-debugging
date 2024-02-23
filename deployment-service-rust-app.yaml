@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-rust-app
+  name: rust-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test-rust-app
+      app: rust-app
   template:
     metadata:
       labels:
-        app: test-rust-app
+        app: rust-app
     spec:
       containers:
-        - name: test-rust-app
-          image: ghcr.io/emanuelef/test-rust-app:latest
+        - name: rust-app
+          image: ghcr.io/emanuelef/rust-app:latest
           ports:
             - containerPort: 8080
           env:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-rust-app-service
+  name: rust-app-service
 spec:
   selector:
-    app: test-rust-app
+    app: rust-app
   ports:
     - protocol: TCP
       port: 8080

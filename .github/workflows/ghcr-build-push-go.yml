@@ -13,7 +13,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: emanuelef/test-pod-go-app
+  IMAGE_NAME: emanuelef/pod-go-app
   VERSION_NUMBER: latest
 
 jobs:

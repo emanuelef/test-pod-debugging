@@ -12,7 +12,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: emanuelef/test-rust-app
+  IMAGE_NAME: emanuelef/rust-app
   VERSION_NUMBER: latest
 
 jobs:
