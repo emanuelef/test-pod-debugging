@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pod-go-app
+  name: go-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pod-go-app
+      app: go-app
   template:
     metadata:
       labels:
-        app: pod-go-app
+        app: go-app
     spec:
       containers:
-        - name: pod-go-app
-          image: ghcr.io/emanuelef/pod-go-app:latest
+        - name: go-app
+          image: ghcr.io/emanuelef/go-app:latest
           ports:
             - containerPort: 8080
           env:
@@ -25,10 +25,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pod-go-app-service
+  name: go-app-service
 spec:
   selector:
-    app: pod-go-app
+    app: go-app
   ports:
     - protocol: TCP
       port: 8080
