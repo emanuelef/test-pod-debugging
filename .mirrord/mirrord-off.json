@@ -1,0 +1,14 @@
+{
+  "feature": {
+    "env": true,
+    "fs": {
+      "mode": "read"
+    },
+    "network": {
+      "incoming": "off"
+    }
+  },
+  "target": {
+    "namespace": "default"
+  }
+}
