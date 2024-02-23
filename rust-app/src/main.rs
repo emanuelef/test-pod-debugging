@@ -1,4 +1,4 @@
-use actix_web::{get, web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{get, middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
 use serde::Serialize;
 
 #[derive(Debug, Serialize)]
@@ -23,11 +23,12 @@ async fn greet(name: web::Path<String>) -> impl Responder {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
+    std::env::set_var("RUST_LOG", "actix_web=info");
     env_logger::init();
     log::warn!("Starting web server on 0.0.0.0:8080");
 
     // Start the Actix web server
-    HttpServer::new(|| App::new().service(greet))
+    HttpServer::new(|| App::new().wrap(Logger::default()).service(greet))
         .bind(("0.0.0.0", 8080))?
         .run()
         .await
