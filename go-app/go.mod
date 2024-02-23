@@ -1,6 +1,6 @@
 module github.com/emanuelef/k8s-local-debugging/go-app
 
-go 1.21.6
+go 1.22.0
 
 require github.com/gin-gonic/gin v1.9.1
 

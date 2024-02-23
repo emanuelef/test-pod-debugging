@@ -17,8 +17,8 @@ const (
 var notToLogEndpoints = []string{"/health", "/metrics"}
 
 var (
-	secondaryHost     = getEnv("SECONDARY_HOST", "localhost")
-	secondaryAddress  = fmt.Sprintf("http://%s:8082", secondaryHost)
+	secondaryHost     = getEnv("API_HOST", "localhost")
+	secondaryAddress  = fmt.Sprintf("http://%s:8080", secondaryHost)
 	secondaryHelloUrl = fmt.Sprintf("%s/hello", secondaryAddress)
 )
 
