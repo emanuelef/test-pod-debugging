@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: SECOND_API_HOST
+            - name: API_HOST
               value: python-app-second-service.default.svc.cluster.local
 
 ---

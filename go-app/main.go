@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"log/slog"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -17,9 +17,9 @@ const (
 var notToLogEndpoints = []string{"/health", "/metrics"}
 
 var (
-	secondaryHost     = getEnv("API_HOST", "localhost")
-	secondaryAddress  = fmt.Sprintf("http://%s:8080", secondaryHost)
-	secondaryHelloUrl = fmt.Sprintf("%s/hello/john", secondaryAddress)
+	apiHost         = getEnv("API_HOST", "localhost")
+	apiHostAddress  = fmt.Sprintf("http://%s:8080", apiHost)
+	helloServiceUrl = fmt.Sprintf("%s/hello/john", apiHostAddress)
 )
 
 func getEnv(key, fallback string) string {
@@ -37,13 +37,13 @@ func main() {
 
 	// Define a health endpoint
 	r.GET("/health", func(c *gin.Context) {
-		slog.Info("Called /health")
+		log.Println("Called /health")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 
 	// Define a hello endpoint
 	r.GET("/hello", func(c *gin.Context) {
-		slog.Info("Called /hello")
+		log.Println("Called /hello")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 
@@ -53,10 +53,10 @@ func main() {
 		port := getEnv("PORT", "8080")
 		hostAddress := fmt.Sprintf("%s:%s", host, port)
 
-		slog.Info("Starting server")
+		log.Println("Starting server")
 		err := r.Run(hostAddress)
 		if err != nil {
-			slog.Info("Starting router failed, %v", err)
+			log.Println("Starting router failed, %v", err)
 		}
 	}()
 
@@ -67,13 +67,13 @@ func main() {
 	for {
 		select {
 		case <-ticker.C:
-			// Perform the GET request to secondaryHelloUrl here
-			resp, err := http.Get(secondaryHelloUrl)
+			// Perform the GET request to helloServiceUrl here
+			resp, err := http.Get(helloServiceUrl)
 			if err != nil {
-				slog.Info("Error making GET request to secondaryHelloUrl: %v", err)
+				log.Printf("Error making GET request to helloServiceUrl %v\n", err)
 			} else {
 				defer resp.Body.Close()
-				slog.Info("GET request to secondaryHelloUrl successful")
+				log.Printf("GET request to helloServiceUrl %s", resp.Status)
 			}
 		}
 	}

@@ -19,7 +19,7 @@ async def handle(request):
 
 async def callExternalApi():
     api_host = os.getenv(
-        "SECOND_API_HOST",
+        "API_HOST",
         "localhost",
     )
     url = f"http://{api_host}:8080"
