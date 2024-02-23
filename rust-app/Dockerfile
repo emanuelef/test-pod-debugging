@@ -1,18 +1,14 @@
 FROM rust:1.76.0 as builder
-RUN apt-get update && apt-get install -y musl-tools
-RUN rustup target add x86_64-unknown-linux-musl
+RUN apt-get -y update
+RUN apt-get install musl-tools -y
 WORKDIR /usr/src/app
 COPY Cargo.toml Cargo.lock ./
 RUN mkdir src
 COPY src ./src
-RUN rustup default nightly && rustup update
-RUN rustup target add x86_64-unknown-linux-musl
-ENV PKG_CONFIG_ALLOW_CROSS=1
-RUN cargo build --target x86_64-unknown-linux-musl --release
+RUN cargo install --target x86_64-unknown-linux-musl --path .
 
 FROM alpine:latest
-RUN apk --no-cache add ca-certificates
-COPY --from=builder /target/x86_64-unknown-linux-musl/release/rust-app .
+COPY --from=builder /usr/local/cargo/bin/rust-app /usr/local/bin/rust-app
 EXPOSE 8080
 CMD ["./rust-app"]
 
