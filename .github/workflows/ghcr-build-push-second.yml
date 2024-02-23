@@ -1,4 +1,4 @@
-name: Publish Second Docker image to GHCR
+name: Publish Second Python App Docker image to GHCR
 
 on:
   workflow_dispatch:
