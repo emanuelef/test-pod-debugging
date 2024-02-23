@@ -13,6 +13,7 @@ async fn health() -> impl Responder {
 
 #[get("/hello/{name}")]
 async fn greet(name: web::Path<String>) -> impl Responder {
+    log::warn!("Called /hello, name: {}", name);
     let response = GreetResponse {
         message: format!("Hello, {}!", name),
     };
@@ -23,7 +24,7 @@ async fn greet(name: web::Path<String>) -> impl Responder {
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     env_logger::init();
-    log::info!("Starting web server on 0.0.0.0:8080");
+    log::warn!("Starting web server on 0.0.0.0:8080");
 
     // Start the Actix web server
     HttpServer::new(|| App::new().service(greet))
