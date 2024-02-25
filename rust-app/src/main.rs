@@ -13,7 +13,7 @@ async fn health() -> impl Responder {
 
 #[get("/hello/{name}")]
 async fn greet(name: web::Path<String>) -> impl Responder {
-    log::warn!("----> /hello, name: {}", name);
+    log::warn!("<---- /hello, name: {}", name);
     let response = GreetResponse {
         message: format!("Hello, {}!", name),
     };
