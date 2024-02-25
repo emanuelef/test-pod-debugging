@@ -37,13 +37,13 @@ func main() {
 
 	// Define a health endpoint
 	r.GET("/health", func(c *gin.Context) {
-		log.Println("Called /health")
+		log.Println("----> /health")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 
 	// Define a hello endpoint
 	r.GET("/hello", func(c *gin.Context) {
-		log.Println("Called /hello")
+		log.Println("----> /hello")
 		c.JSON(http.StatusNoContent, gin.H{})
 	})
 

@@ -5,13 +5,13 @@ from aiohttp import web, ClientSession
 
 
 async def handleRoot(request):
-    logging.warning("Called root API")
+    logging.warning("----> root API")
     text = "Hello!"
     return web.Response(text=text)
 
 
 async def handle(request):
-    logging.warning("Called Hello API")
+    logging.warning("----> Hello API")
     name = request.match_info.get("name", "Anonymous")
     text = await callExternalApi()
     return web.Response(text=f"Hello, {name}! External API Response: {text}")
