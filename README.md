@@ -1,6 +1,8 @@
-#k8s-local-debugging
+# k8s-local-debugging
 
-Strt:
+This is the repo for the Medium Article [Mastering Local Microservices Debugging with Mirrord](https://medium.com/@emafuma/mastering-local-microservices-debugging-with-mirrord-0a99443c1544). 
+
+Start:
 ``` bash
 kubectl apply -f deployment-service.yaml
 kubectl apply -f deployment-service-second.yaml
